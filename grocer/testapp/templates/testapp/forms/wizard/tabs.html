@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist"
+  data-init-reponsive-tabs="dropdownfx">
+  {% for tab in tabs %}
+
+  <li class="nav-item">
+    <a class="{% if forloop.counter == 1 %}active{% endif %}" data-toggle="tab" href="#tab{{ forloop.counter }}" data-target="#tab{{ forloop.counter }}"
+      role="tab">
+      {% if tab.icon %}
+      <i class="{{ tab.icon }}"></i>
+      {% else %}
+      <i class="fa fa-shopping-cart tab-icon"></i>
+      {% endif %}
+      <span>{{ tab.name }}</span></a>
+  </li>
+
+  {% endfor %}
+</ul>

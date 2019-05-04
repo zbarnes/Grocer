@@ -1,0 +1,12 @@
+<div class="col-md-5 b-r b-dashed b-grey sm-b-b">
+  <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+    {% if icon %}
+    <i class="fa fa-{{icon}} fa-2x hint-text"></i>
+    {% else %}
+    <i class="fa fa-cutlery fa-2x hint-text" aria-hidden="true"></i>
+    {% endif %}
+    <h2>{{title}}</h2>
+    <p>{{blurb}}</p>
+    <p class="small hint-text">{{mutedblurb}}</p>
+  </div>
+</div>
