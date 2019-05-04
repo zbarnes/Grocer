@@ -21,3 +21,6 @@ class DemoView(TemplateView):
         context['note'] = "You are protected by the Good Smaritan Law!"
 
         return context
+
+class HomeView(TemplateView):
+    template_name = 'testapp/home.html'
