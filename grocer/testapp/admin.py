@@ -1,7 +1,10 @@
 from django.contrib import admin
-from testapp.models import Food_Requested, Organization
+from testapp import models
 
 # Register your models here.
 
-admin.site.register(Food_Requested)
-admin.site.register(Organization)
+admin.site.register(models.Food_Requested)
+admin.site.register(models.Food_Produced)
+admin.site.register(models.Producer)
+admin.site.register(models.Requester)
+admin.site.register(models.Cater)

@@ -17,7 +17,7 @@ class Organization(models.Model):
     
 class Food_Requested(models.Model):
     name = models.CharField(max_length=250)
-    originator = models.ForeignKey('Requester', default = '', on_delete=models.CASCADE)
+    originator = models.ForeignKey('Requester', null=True, default = '', on_delete=models.CASCADE)
     food_type = models.CharField(max_length=250, default = '')
     quantity_weight = models.IntegerField(default=0)
     quantity_unit = models.IntegerField(default=0)
