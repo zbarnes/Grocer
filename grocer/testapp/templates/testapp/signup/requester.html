@@ -1,0 +1,27 @@
+{% extends 'testapp/_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container container-fixed-lg">
+  <div id="rootwizard" class="m-t-50">
+    <!-- Nav tabs -->
+    {% include 'testapp/forms/wizard/tabs.html' %}
+    <!-- Tab panes -->
+    {% include 'testapp/forms/wizard/forms.html' %}
+  </div>
+  {% if disclaimer %}
+  <div class="wizard-footer padding-20 bg-master-light">
+    <p class="small hint-text pull-left no-margin">
+      {{ disclaimer }}
+    </p>
+    <div class="pull-right">
+      <img src="{% static 'assets/img/logo.png' %}" alt="logo" data-src="{% static 'assets/img/logo.png' %}"
+        data-src-retina="{% static 'assets/img/logo_2x.png' %}" width="22" height="17">
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  {% endif %}
+</div>
+
+
+{% endblock %}

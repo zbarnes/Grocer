@@ -1,0 +1,126 @@
+{% extends 'testapp/_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Jumbotron -->
+<div class="jumbotron" data-pages="parallax" data-scroll-element=".page-container">
+  <div class=" container p-l-0 p-r-0   container-fixed-lg sm-p-l-0 sm-p-r-0">
+    <div class="inner" style="transform: translateY(0px); opacity: 1;">
+
+      <div class="row">
+        <div class="col-xl-7 col-lg-6 ">
+
+          <div class="full-height">
+            <div class="card-body text-center">
+              <img class="image-responsive-height demo-mw-400" src="{% static 'assets/img/logo.png' %}" alt="">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xl-5 col-lg-6 ">
+
+          <div class="card card-transparent">
+            <div class="card-header ">
+              <div class="card-title">Helping the Community
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>It only takes a glance.</h3>
+              <p>
+                Thanks for joining Grocer! We're excited to have you onboard with our program. 
+                Below are all the foods local programs are requesting.
+              </p>
+              <p class="small hint-text m-t-5">Sincerely,
+                <br> The Grocer Team
+                <br>
+              </p>
+              <br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Table -->
+<div class="container container-fixed-lg">
+  <div class=" no-padding    container-fixed-lg bg-white">
+    <div class="container">
+
+      <div class="card card-transparent">
+        <div class="card-header ">
+          <div class="card-title">Organizations With Excess Food
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <div id="basicTable_wrapper" class="dataTables_wrapper no-footer">
+              
+              <table class="table table-hover dataTable no-footer" id="basicTable" role="grid">
+                <thead>
+                  <tr role="row">
+                    <th style="width:1%" class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="">
+                      <button class="btn btn-link"><i class="pg-trash"></i>
+                      </button>
+                    </th>
+                    <th style="width: 156.4px;" class="sorting_desc" tabindex="0" aria-controls="basicTable" rowspan="1"
+                      colspan="1" aria-sort="descending" aria-label="Title: activate to sort column ascending">Organization
+                    </th>
+                    <th style="width: 158.8px;" class="sorting" tabindex="0" aria-controls="basicTable" rowspan="1"
+                      colspan="1" aria-label="Places: activate to sort column ascending">Address</th>
+                    <th style="width: 246.8px;" class="sorting" tabindex="0" aria-controls="basicTable" rowspan="1"
+                      colspan="1" aria-label="Activities: activate to sort column ascending">Foods</th>
+                    <th style="width: 109.2px;" class="sorting" tabindex="0" aria-controls="basicTable" rowspan="1"
+                      colspan="1" aria-label="Status: activate to sort column ascending">Status</th>
+                    <th style="width: 110px;" class="sorting" tabindex="0" aria-controls="basicTable" rowspan="1"
+                      colspan="1" aria-label="Last Update: activate to sort column ascending">Last Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {% for org in rows %}
+
+                  <tr role="row" class="odd">
+                    <td class="v-align-middle">
+                      <div class="checkbox text-center">
+                        <input type="checkbox" value="3" id="checkbox4">
+                        <label for="checkbox4" class="no-padding no-margin"></label>
+                      </div>
+                    </td>
+                    <td class="v-align-middle sorting_1">
+                      <p>{{org}}</p>
+                    </td>
+                    <td class="v-align-middle">
+                      <p>{{org.addr}}</p>
+                    </td>
+                    <td class="v-align-middle">
+                      <ul>
+                      {% for food in org.foods.all %}
+                        <li>{{ food.name }}</li>
+                      {% endfor %}
+                     </ul> 
+                    </td>
+                    <td class="v-align-middle">
+                      <p>{{org.status}}</p>
+                    </td>
+                    <td class="v-align-middle">
+                      <p>{{org.last_update}}</p>
+                    </td>
+                  </tr>
+
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

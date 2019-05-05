@@ -1,0 +1,48 @@
+<div class="col-md-7">
+  <div class="padding-30 sm-padding-5">
+
+    <div class="form-group-attached">
+      <div class="form-group form-group-default required">
+        <label>Business Name</label>
+        <input type="text" class="form-control" required>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="form-group-attached">
+      <div class="form-group form-group-default required">
+        <label>Address Line 1</label>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="form-group form-group-default required">
+        <label>Address Line 2</label>
+        <input type="text" class="form-control" required>
+      </div>
+    </div>
+
+    <br />
+    <div class="form-group-attached">
+      <div class="form-group form-group-default required">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" required>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="form-group form-group-default form-group-default-select2">
+      <label>Food Available</label>
+      <select class=" full-width" data-init-plugin="select2" multiple>
+        {% for f in foods %}
+        <option value="{{f.id}}">{{f.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <a href="/demo/account/">
+      <button class="btn btn-primary btn-cons">Create Account</button>
+    </a>
+
+  </div>
+</div>

@@ -1,13 +1,25 @@
 <div class="tab-content">
   {% for tab in tabs %}
-  {% with icon=tab.icon title=title.icon blurb=tab.blurb mutedblurb=tab.mutedblurb forms=tab.forms %}
+  {% with icon=tab.icon title=tab.title blurb=tab.blurb mutedblurb=tab.mutedblurb forms=tab.forms %}
 
   <div class="tab-pane padding-20 sm-no-padding {% if forloop.counter == 1 %}active{% endif %} slide-left"
     id="tab{{ forloop.counter }}">
     <div class="row row-same-height">
       {% include 'testapp/forms/wizard/leftForm.html' %}
 
+      {% if tab.form == 'rightForm' %}
+
       {% include 'testapp/forms/wizard/rightForm.html' %}
+
+      {% elif tab.form == 'business' %}
+
+      {% include 'testapp/signup/business.html' %}
+
+      {% elif tab.form == 'food' %}
+
+      {% include 'testapp/signup/food.html' %}
+
+      {% endif %}
     </div>
     
   </div>

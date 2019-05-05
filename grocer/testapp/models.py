@@ -1,5 +1,15 @@
 from django.db import models
 
+class Organization(models.Model):
+    name = models.CharField(unique=True, max_length=255)
+    addr = models.CharField(unique=True, max_length=255)
+    foods = models.ManyToManyField('Food_Requested')
+    status = models.CharField(max_length=255)
+    last_update = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
 # Create your models here.
 class Food_Requested(models.Model):
     name = models.CharField(max_length=250)
